@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,10 +10,16 @@ import javax.swing.JOptionPane;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class SampleController {
 
+	static String uid,uname,uemail,uphone;
 	Connection conn = null;
 	ResultSet srs = null;
 	PreparedStatement pst = null;
@@ -40,9 +47,10 @@ public class SampleController {
     }  
     
     @FXML
-    void onClickLogin(ActionEvent event) {  	
+    void onClickLogin(ActionEvent event) throws IOException {  	
        	String id = tf1.getText();
     	String name = tf2.getText();
+    	String email,phone;
     	
 
     	if(id.equals("") && name.equals(""))
@@ -57,7 +65,19 @@ public class SampleController {
 				srs = pst.executeQuery();
 				if(srs.next()) {
 					JOptionPane.showMessageDialog(null, "Login Success");  
-					
+					email = srs.getString("email");
+					phone = srs.getString("phone");
+					this.uid = id;
+					this.uname = name;
+					this.uemail = email;
+					this.uphone = phone;
+
+					Parent root = FXMLLoader.load(getClass().getResource("NewWindow.fxml"));
+			//		Stage stage = new Stage();
+					Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+					Scene scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
 				} else
 				{
 					JOptionPane.showMessageDialog(null, "Login Failed");  

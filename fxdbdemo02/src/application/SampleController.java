@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 public class SampleController {
 	Connection conn;
 	Statement stmt = null;
@@ -24,7 +26,6 @@ public class SampleController {
 				tf2.setText(srs.getString("name"));
 				tf3.setText(srs.getString("email"));
 				tf4.setText(srs.getString("phone"));
-				label1.setText("confirm");
 			}
 
 		} catch (SQLException e) {
@@ -42,8 +43,7 @@ public class SampleController {
 
 	@FXML
 	private TextField tf4;
-	@FXML
-	private Label label1;
+
 	private void repeat() throws SQLException {
 		stmt = conn.createStatement(
 				ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -54,7 +54,7 @@ public class SampleController {
 			tf2.setText(srs.getString("name"));
 			tf3.setText(srs.getString("email"));
 			tf4.setText(srs.getString("phone"));
-			label1.setText("confirm");
+
 		}
 	}
 
@@ -68,7 +68,7 @@ public class SampleController {
 				tf4.setText(srs.getString("phone"));
 			}
 			else {
-				label1.setText("No data !");     		
+				JOptionPane.showMessageDialog(null, "No Data !!");     		
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class SampleController {
 				tf4.setText(srs.getString("phone"));
 			}
 			else {
-				label1.setText("No data !");    		
+				JOptionPane.showMessageDialog(null, "No Data !!");      		
 				}  			      
 		} catch (SQLException e) {
 			e.printStackTrace();
