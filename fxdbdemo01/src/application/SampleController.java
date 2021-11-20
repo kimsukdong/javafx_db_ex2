@@ -14,8 +14,11 @@ public class SampleController {
 	@FXML
 	private void initialize() {
 		conn = mysqlconnect.ConnectDb();
+		lookup();
+	}
+	public void lookup(){
 		try {
-		
+			
 			stmt = conn.createStatement();
     		srs = stmt.executeQuery("select * from student");
 

@@ -16,6 +16,9 @@ public class SampleController {
 	@FXML
 	private void initialize() {
 		conn = mysqlconnect.ConnectDb();
+		lookup();
+	}
+	public void lookup() {
 		try {
 
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE );
