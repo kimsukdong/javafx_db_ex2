@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 
-// 전체 테이블에서 수정 기능 추가
+// 메뉴 선택
 
 public class Main extends Application {
 	@Override
