@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SearchController">
+   <children>
+      <TableView fx:id="tableContent" layoutX="6.0" layoutY="6.0" onMouseClicked="#onMouseClicked" prefHeight="450.0" prefWidth="593.0">
+         <columns>
+            <TableColumn fx:id="col_id" prefWidth="99.0" text="id" />
+            <TableColumn fx:id="col_name" prefWidth="136.0" text="Name" />
+            <TableColumn fx:id="col_email" prefWidth="172.0" text="E-mail" />
+            <TableColumn fx:id="col_phone" minWidth="0.0" prefWidth="192.0" text="Phone Number" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
