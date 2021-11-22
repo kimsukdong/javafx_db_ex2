@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
+//db 자료를 앞,뒤로 검색한다.
 
 public class Main extends Application {
 	@Override
