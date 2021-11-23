@@ -47,20 +47,6 @@ public class SampleController {
 	@FXML
 	private TextField tf4;
 
-	private void repeat() throws SQLException {
-		stmt = conn.createStatement(
-				ResultSet.TYPE_SCROLL_INSENSITIVE,
-				ResultSet.CONCUR_UPDATABLE );
-		srs = stmt.executeQuery("select * from student");
-		if(srs.next()) {
-			tf1.setText(srs.getString("id"));
-			tf2.setText(srs.getString("name"));
-			tf3.setText(srs.getString("email"));
-			tf4.setText(srs.getString("phone"));
-
-		}
-	}
-
 	@FXML
 	void onClickNext(ActionEvent event) {
 		try {
