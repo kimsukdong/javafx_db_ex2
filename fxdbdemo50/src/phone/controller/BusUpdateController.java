@@ -80,7 +80,7 @@ public class BusUpdateController {
 	@FXML
 	void onClickBack(ActionEvent event) throws IOException {
 		try {
-			AnchorPane root = FXMLLoader.load(getClass().getResource("view/BusMain.fxml"));
+			AnchorPane root = FXMLLoader.load(getClass().getResource("/phone/view/BusMain.fxml"));
 			Main.mainLayout.setCenter(root);
 		} catch(Exception e) {
 			e.printStackTrace();

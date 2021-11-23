@@ -72,7 +72,7 @@ public class SampleController {
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "No Data !!");     		
-				}
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -89,7 +89,25 @@ public class SampleController {
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "No Data !!");      		
-				}  			      
+			}  			      
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	@FXML
+	void onClickLast(ActionEvent event) {
+		try {
+			if(srs.last()) {
+				tf1.setText(srs.getString("id"));
+				tf2.setText(srs.getString("name"));
+				tf3.setText(srs.getString("email"));
+				tf4.setText(srs.getString("phone"));
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No Data !!");     		
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -98,9 +116,16 @@ public class SampleController {
 	@FXML
 	void onClickFirst(ActionEvent event) {
 		try {
-			repeat();
+			if(srs.first()) {
+				tf1.setText(srs.getString("id"));
+				tf2.setText(srs.getString("name"));
+				tf3.setText(srs.getString("email"));
+				tf4.setText(srs.getString("phone"));
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No Data !!");     		
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
